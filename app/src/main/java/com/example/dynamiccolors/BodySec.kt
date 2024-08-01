@@ -3,10 +3,13 @@ package com.example.dynamiccolors
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Star
@@ -33,17 +36,18 @@ data class Info(
 
 fun InfoList(): List<Info> {
     return listOf(
-        Info(R.drawable.profile,"Name","20 min ago","Title","Description"),
-        Info(R.drawable.profile,"Name","20 min ago","Title","Description"),
-        Info(R.drawable.profile,"Name","20 min ago","Title","Description"),
+        Info(R.drawable.profile,"Sagnik","20 min ago","Title","Description"),
+        Info(R.drawable.profile,"Rahul","20 min ago","Title","Description"),
+        Info(R.drawable.profile,"Vijay","20 min ago","Title","Description"),
     )
 }
 
 @Preview
 @Composable
-fun InfoCard(info: List<Info>){
+fun InfoCard(info: Info){
     Card(
-        modifier = Modifier.clip(RoundedCornerShape(20.dp))
+        modifier = Modifier.clip(RoundedCornerShape(20.dp)).padding(bottom = 20.dp),
+        onClick = {}
     ){
         Column (
             modifier = Modifier.padding(20.dp,15.dp)
@@ -64,8 +68,8 @@ fun InfoCard(info: List<Info>){
                     Column (
                         modifier = Modifier.padding(start = 10.dp)
                     ){
-                        Text(text = "Name", fontSize = 18.sp)
-                        Text(text = "20 min ago", fontSize = 12.sp)
+                        Text(text = info.name, fontSize = 18.sp)
+                        Text(text = info.time, fontSize = 12.sp)
                     }
                 }
                 IconButton(onClick = { /*TODO*/ }) {
@@ -77,14 +81,18 @@ fun InfoCard(info: List<Info>){
             Column (
                 modifier = Modifier.padding(top = 10.dp)
             ){
-            Text(text = "${info.name}", fontSize = 28.sp)
-            Text(text = "Description", fontSize = 16.sp, modifier = Modifier.padding(top = 10.dp))
+            Text(text = info.title, fontSize = 28.sp)
+            Text(text = info.desc, fontSize = 16.sp, modifier = Modifier.padding(top = 10.dp))
             }
         }
     }
 }
 
 @Composable
-fun BodySection() {
-    InfoCard(info = InfoList())
+fun BodySection(info: List<Info> = InfoList()) {
+    LazyColumn{
+        items(info.size){
+            InfoCard(info = InfoList()[it])
+        }
+    }
 }
