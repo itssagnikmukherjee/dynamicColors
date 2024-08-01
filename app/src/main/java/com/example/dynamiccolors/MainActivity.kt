@@ -60,10 +60,11 @@ class MainActivity : ComponentActivity() {
                 Scaffold{innerPadding->
                     Column(modifier = Modifier
                         .padding(innerPadding)
-                        .padding(20.dp)
+                        .padding(20.dp,0.dp)
                         .fillMaxWidth()){
                         TopSec()
                         BodySection()
+                        BottomNavBar()
                     }
                 }
             }
