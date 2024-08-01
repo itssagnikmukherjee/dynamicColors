@@ -12,10 +12,13 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.Card
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.NavigationBar
+import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -31,13 +34,14 @@ data class Info(
     val name: String,
     val time: String,
     val title: String,
-    val desc: String
+    val desc: String,
+    val imgData: Int? = null
 )
 
 fun InfoList(): List<Info> {
     return listOf(
         Info(R.drawable.profile,"Sagnik","20 min ago","Title","Description"),
-        Info(R.drawable.profile,"Rahul","20 min ago","Title","Description"),
+        Info(R.drawable.profile,"Rahul","20 min ago","Title","Description",R.drawable.ic_launcher_background),
         Info(R.drawable.profile,"Vijay","20 min ago","Title","Description"),
     )
 }
@@ -46,7 +50,9 @@ fun InfoList(): List<Info> {
 @Composable
 fun InfoCard(info: Info){
     Card(
-        modifier = Modifier.clip(RoundedCornerShape(20.dp)).padding(bottom = 20.dp),
+        modifier = Modifier
+            .clip(RoundedCornerShape(20.dp))
+            .padding(bottom = 20.dp),
         onClick = {}
     ){
         Column (
@@ -84,6 +90,8 @@ fun InfoCard(info: Info){
             Text(text = info.title, fontSize = 28.sp)
             Text(text = info.desc, fontSize = 16.sp, modifier = Modifier.padding(top = 10.dp))
             }
+            info.imgData?.let { painterResource(id = it) }
+                ?.let { Image(painter = it, contentDescription = "") }
         }
     }
 }
