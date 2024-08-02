@@ -2,13 +2,16 @@ package com.example.dynamiccolors
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -24,7 +27,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -40,9 +45,9 @@ data class Info(
 
 fun InfoList(): List<Info> {
     return listOf(
-        Info(R.drawable.profile,"Sagnik","20 min ago","Title","Description"),
-        Info(R.drawable.profile,"Rahul","20 min ago","Title","Description",R.drawable.ic_launcher_background),
-        Info(R.drawable.profile,"Vijay","20 min ago","Title","Description"),
+        Info(R.drawable.smalldog,"Rohit","20 min ago","weekend plan \uD83E\uDEE0","kuch plan nahi hai bhai"),
+        Info(R.drawable.xavier,"Suman","1 hour ago","promotion mil gaya","in my dreams :)",R.drawable.nft),
+        Info(R.drawable.cat,"Vijay","2 days ago","project completed \uD83E\uDD79","check github"),
     )
 }
 
@@ -66,7 +71,7 @@ fun InfoCard(info: Info){
                 Row (
                     verticalAlignment = Alignment.CenterVertically,
                 ){
-                    Image(painter = painterResource(id = R.drawable.profile), contentDescription = "", modifier = Modifier
+                    Image(painter = painterResource(id = info.img), contentDescription = "", modifier = Modifier
                         .size(60.dp)
                         .clip(
                             RoundedCornerShape(50.dp)
@@ -74,7 +79,7 @@ fun InfoCard(info: Info){
                     Column (
                         modifier = Modifier.padding(start = 10.dp)
                     ){
-                        Text(text = info.name, fontSize = 18.sp)
+                        Text(text = info.name, fontSize = 18.sp, fontWeight = FontWeight.Medium)
                         Text(text = info.time, fontSize = 12.sp)
                     }
                 }
@@ -87,11 +92,13 @@ fun InfoCard(info: Info){
             Column (
                 modifier = Modifier.padding(top = 10.dp)
             ){
-            Text(text = info.title, fontSize = 28.sp)
+            Text(text = info.title, fontSize = 22.sp)
             Text(text = info.desc, fontSize = 16.sp, modifier = Modifier.padding(top = 10.dp))
             }
             info.imgData?.let { painterResource(id = it) }
-                ?.let { Image(painter = it, contentDescription = "") }
+                ?.let {
+                        Image(painter = it, contentDescription = "", contentScale = ContentScale.FillBounds, modifier = Modifier.height(140.dp))
+                }
         }
     }
 }

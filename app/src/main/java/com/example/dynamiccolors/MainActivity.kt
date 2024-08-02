@@ -43,6 +43,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.modifier.modifierLocalMapOf
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -57,11 +58,16 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             DynamicColorsTheme {
-                Scaffold{innerPadding->
+                Scaffold(
+                ){innerPadding->
+
                     Column(modifier = Modifier
                         .padding(innerPadding)
                         .padding(20.dp,0.dp)
-                        .fillMaxWidth()){
+                        .fillMaxWidth(),
+                        horizontalAlignment = Alignment.CenterHorizontally,
+                        verticalArrangement = Arrangement.SpaceBetween
+                    ){
                         TopSec()
                         BodySection()
                         BottomNavBar()
