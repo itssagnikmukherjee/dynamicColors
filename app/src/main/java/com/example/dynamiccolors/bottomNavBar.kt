@@ -45,7 +45,7 @@ fun BottomNavBar() {
     ) {
         Row(
             modifier = Modifier
-                .background(MaterialTheme.colorScheme.tertiary).fillMaxWidth().height(100.dp).padding(10.dp),
+                .background(MaterialTheme.colorScheme.primary.copy(0.8f)).fillMaxWidth().height(100.dp).padding(10.dp),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceAround
         ) {

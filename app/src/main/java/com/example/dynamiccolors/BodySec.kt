@@ -20,6 +20,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Star
+import androidx.compose.material.icons.outlined.Star
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardColors
 import androidx.compose.material3.Icon
@@ -66,7 +67,7 @@ fun InfoCard(info: Info){
             .padding(bottom = 20.dp),
         onClick = {},
         colors = CardColors(
-            containerColor = MaterialTheme.colorScheme.primaryContainer,
+            containerColor = MaterialTheme.colorScheme.primaryContainer.copy(0.6f),
             contentColor = MaterialTheme.colorScheme.onPrimaryContainer,
             disabledContentColor = Color.Red,
             disabledContainerColor = Color.Yellow
@@ -96,10 +97,10 @@ fun InfoCard(info: Info){
                     }
                 }
                 IconButton(onClick = { /*TODO*/ }) {
-                    Icon(imageVector = Icons.Filled.Star, contentDescription = "",
+                    Icon(imageVector = Icons.Outlined.Star, contentDescription = "",
                         Modifier
                             .size(60.dp),
-                        tint = MaterialTheme.colorScheme.tertiary)
+                        tint = MaterialTheme.colorScheme.primary.copy(0.5f))
                 }
             }
             Column (
