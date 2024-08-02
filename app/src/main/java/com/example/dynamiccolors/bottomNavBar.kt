@@ -45,22 +45,21 @@ fun BottomNavBar() {
     ) {
         Row(
             modifier = Modifier
-                .fillMaxSize()
-                .background(MaterialTheme.colorScheme.onSurface),
+                .background(MaterialTheme.colorScheme.tertiary).fillMaxWidth().height(100.dp).padding(10.dp),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceAround
         ) {
             IconButton(onClick = { /*TODO*/ }) {
-                Icon(imageVector = Icons.Default.Home, contentDescription = "", modifier = Modifier.size(30.dp), tint = Color.DarkGray)
+                Icon(imageVector = Icons.Default.Home, contentDescription = "", modifier = Modifier.size(30.dp), tint = MaterialTheme.colorScheme.background)
             }
             IconButton(onClick = { /*TODO*/ }) {
-                Icon(imageVector = Icons.Default.Email, contentDescription = "", modifier = Modifier.size(30.dp), tint = Color.DarkGray)
+                Icon(imageVector = Icons.Default.Email, contentDescription = "", modifier = Modifier.size(30.dp), tint = MaterialTheme.colorScheme.background)
             }
             IconButton(onClick = { /*TODO*/ }) {
-                Icon(imageVector = Icons.Default.AddCircle, contentDescription = "", modifier = Modifier.size(30.dp), tint = Color.DarkGray)
+                Icon(imageVector = Icons.Default.AddCircle, contentDescription = "", modifier = Modifier.size(30.dp), tint = MaterialTheme.colorScheme.background)
             }
             IconButton(onClick = { /*TODO*/ }) {
-                Icon(imageVector = Icons.Default.Call, contentDescription = "", modifier = Modifier.size(30.dp), tint = Color.DarkGray)
+                Icon(imageVector = Icons.Default.Call, contentDescription = "", modifier = Modifier.size(30.dp), tint = MaterialTheme.colorScheme.background)
             }
         }
     }

@@ -1,5 +1,8 @@
 package com.example.dynamiccolors
 
+import android.app.WallpaperManager
+import android.graphics.drawable.BitmapDrawable
+import android.graphics.drawable.Drawable
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -18,8 +21,10 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.Card
+import androidx.compose.material3.CardColors
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Text
@@ -27,6 +32,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
@@ -58,7 +64,13 @@ fun InfoCard(info: Info){
         modifier = Modifier
             .clip(RoundedCornerShape(20.dp))
             .padding(bottom = 20.dp),
-        onClick = {}
+        onClick = {},
+        colors = CardColors(
+            containerColor = MaterialTheme.colorScheme.primaryContainer,
+            contentColor = MaterialTheme.colorScheme.onPrimaryContainer,
+            disabledContentColor = Color.Red,
+            disabledContainerColor = Color.Yellow
+        )
     ){
         Column (
             modifier = Modifier.padding(20.dp,15.dp)
@@ -86,7 +98,8 @@ fun InfoCard(info: Info){
                 IconButton(onClick = { /*TODO*/ }) {
                     Icon(imageVector = Icons.Filled.Star, contentDescription = "",
                         Modifier
-                            .size(60.dp))
+                            .size(60.dp),
+                        tint = MaterialTheme.colorScheme.tertiary)
                 }
             }
             Column (

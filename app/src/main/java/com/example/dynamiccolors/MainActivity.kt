@@ -17,15 +17,19 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.MediumTopAppBar
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
@@ -59,18 +63,29 @@ class MainActivity : ComponentActivity() {
         setContent {
             DynamicColorsTheme {
                 Scaffold(
+                    floatingActionButton = {
+                        FloatingActionButton(onClick = { /*TODO*/ },
+                            containerColor = MaterialTheme.colorScheme.primary,
+                            contentColor = MaterialTheme.colorScheme.onPrimary,
+                            modifier = Modifier.size(70.dp).clip(RoundedCornerShape(50.dp))
+                        ) {
+                            Icon(imageVector = Icons.Default.Add, contentDescription = "", modifier = Modifier.size(30.dp))
+                        }
+                    },
+                    bottomBar = {
+                        BottomNavBar()
+                    }
                 ){innerPadding->
 
                     Column(modifier = Modifier
                         .padding(innerPadding)
-                        .padding(20.dp,0.dp)
+                        .padding(20.dp, 0.dp)
                         .fillMaxWidth(),
                         horizontalAlignment = Alignment.CenterHorizontally,
                         verticalArrangement = Arrangement.SpaceBetween
                     ){
                         TopSec()
                         BodySection()
-                        BottomNavBar()
                     }
                 }
             }

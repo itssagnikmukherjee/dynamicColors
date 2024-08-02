@@ -1,5 +1,6 @@
 package com.example.dynamiccolors
 
+import android.content.res.Resources.Theme
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
@@ -12,6 +13,7 @@ import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextFieldDefaults
@@ -41,8 +43,8 @@ fun TopSec() {
             shape = RoundedCornerShape(20.dp),
             modifier = Modifier.width(300.dp),
             colors = TextFieldDefaults.colors(
-                unfocusedContainerColor = MyGrey,
-                focusedContainerColor = Color.White,
+                unfocusedContainerColor = MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.3f),
+                focusedContainerColor = MyGrey,
                 unfocusedIndicatorColor = Color.Transparent,
                 focusedIndicatorColor = MyGrey,
             )
