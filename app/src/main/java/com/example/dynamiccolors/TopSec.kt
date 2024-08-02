@@ -43,7 +43,7 @@ fun TopSec() {
             shape = RoundedCornerShape(20.dp),
             modifier = Modifier.width(300.dp),
             colors = TextFieldDefaults.colors(
-                unfocusedContainerColor = MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.3f),
+                unfocusedContainerColor = MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.2f),
                 focusedContainerColor = MyGrey,
                 unfocusedIndicatorColor = Color.Transparent,
                 focusedIndicatorColor = MyGrey,
