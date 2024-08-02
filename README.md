@@ -2,7 +2,10 @@
 
 Dynamic colors enhance the user experience by adapting the UI based on the content, user preferences, or environmental factors. Jetpack Compose provides several ways to implement dynamic colors in your app. This guide will cover the basics of using dynamic colors in Jetpack Compose.
 
-
+<video width="640" height="480" controls>
+  <source src="" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 ## Table of Contents
 
