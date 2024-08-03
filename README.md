@@ -7,6 +7,9 @@ Dynamic colors enhance the user experience by adapting the UI based on the conte
   Your browser does not support the video tag.
 </video>
 
+<img src="https://github.com/itssagnikmukherjee/dynamicColors/blob/master/dynamicColors.png">
+
+
 [Watch the video](https://github.com/itssagnikmukherjee/dynamicColors/blob/master/file_demo.mp4)
 
 ## Table of Contents
