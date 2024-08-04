@@ -58,31 +58,3 @@ On Tertiary Fixed          | colorOnTertiaryFixed         | tertiary10     | sys
 On Tertiary Fixed Variant  | colorOnTertiaryFixedVariant  | tertiary30     | system_accent3_700  | system_on_tertiary_fixed_variant    | tertiary30    | system_accent3_700 | system_on_tertiary_fixed_variant
 
 <h4>Reference : https://github.com/material-components/material-components-android/blob/master/docs/theming/Color.md?plain=1</h4>
-
-### Dynamic Color Palette
-
-You can setup the dynamic colour palette by modifying this part of code 
-```kotlin
-@Composable
-fun DynamicColorsTheme(
-    darkTheme: Boolean = isSystemInDarkTheme(),
-    // Dynamic color is available on Android 12+
-    dynamicColor: Boolean = true,
-    content: @Composable () -> Unit
-) {
-    val colorScheme = when {
-        dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
-            val context = LocalContext.current
-            if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
-        }
-
-        darkTheme -> DarkColorScheme
-        else -> LightColorScheme
-    }
-
-    MaterialTheme(
-        colorScheme = colorScheme,
-        typography = Typography,
-        content = content
-    )
-}
